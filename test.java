@@ -189,12 +189,11 @@ public class test {
 		//printTable(conn);
 		long end = System.currentTimeMillis();
 		long total = end - start;
-		speedUpVar = total;
 		System.out.println("VARATION I LOAD TIME : " + total);
 
 		//query list 
-		//int[] intArray = new int[]{ 25000, 10000, 120820, 100000, 16, 1000000, 2300000, 130, 1800345, 160000 }
-		int[] intArray = new int[]{ 10, 1000, 1200, 500, 2500, 100, 2300, 8000, 7050, 1600 }
+		//int[] intArray = new int[]{ 25000, 10000, 120820, 100000, 16, 1000000, 2300000, 130, 1800345, 160000 };
+		int[] intArray = new int[]{ 10, 1000, 1200, 500, 2500, 100, 2300, 8000, 7050, 1600 };
 		
 		//query I with physical organization 1
 		long avg;
