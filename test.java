@@ -197,13 +197,13 @@ public class test {
 		int[] intArray = new int[]{ 10, 1000, 1200, 500, 2500, 100, 2300, 8000, 7050, 1600 }
 		
 		//query I with physical organization 1
-		int avg;
+		long avg;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 1: " + avg);
 
@@ -213,7 +213,7 @@ public class test {
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 1: " + avg);
 
@@ -223,7 +223,7 @@ public class test {
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " + avg);		
 		//add index for col a
@@ -238,7 +238,7 @@ public class test {
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 2: " + avg);
 		//Query II with physical organization 2
@@ -247,7 +247,7 @@ public class test {
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 2: " + avg);
 		//Query III with pysical organization 2
@@ -256,7 +256,7 @@ public class test {
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " + avg);
 
@@ -276,7 +276,7 @@ public class test {
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 3: " + avg);
 		//Query II with physical organization 3
@@ -285,7 +285,7 @@ public class test {
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 3: " + avg);
 		//Query III with pysical organization 3
@@ -294,7 +294,7 @@ public class test {
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 3: " + avg);
 		//add secondary index for col a
@@ -305,7 +305,7 @@ public class test {
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 4: " + avg);
 		//Query II with physical organization 3
@@ -314,7 +314,7 @@ public class test {
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 4: " + avg);
 		//Query III with pysical organization 3
@@ -323,7 +323,7 @@ public class test {
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 4: " + avg);
 
@@ -344,7 +344,7 @@ public class test {
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 1: " + avg);
 
@@ -354,7 +354,7 @@ public class test {
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 1: " + avg);
 
@@ -364,7 +364,7 @@ public class test {
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " + avg);		
 		//add index for col a
@@ -379,7 +379,7 @@ public class test {
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 2: " + avg);
 		//Query II with physical organization 2
@@ -388,7 +388,7 @@ public class test {
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 2: " + avg);
 		//Query III with pysical organization 2
@@ -397,7 +397,7 @@ public class test {
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " + avg);
 
@@ -417,7 +417,7 @@ public class test {
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 3: " + avg);
 		//Query II with physical organization 3
@@ -426,7 +426,7 @@ public class test {
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 3: " + avg);
 		//Query III with pysical organization 3
@@ -435,7 +435,7 @@ public class test {
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 3: " + avg);
 		//add secondary index for col a
@@ -446,7 +446,7 @@ public class test {
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 4: " + avg);
 		//Query II with physical organization 3
@@ -455,7 +455,7 @@ public class test {
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 4: " + avg);
 		//Query III with pysical organization 3
@@ -464,7 +464,7 @@ public class test {
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (avg * i + total)/(i+1);
+			avg = new long(((int) avg * i +(int) total)/(i+1));
 		}
 		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 4: " + avg);
 
