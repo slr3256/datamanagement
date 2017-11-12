@@ -196,35 +196,36 @@ public class test {
 		int[] intArray = new int[]{ 10, 1000, 1200, 500, 2500, 100, 2300, 8000, 7050, 1600 };
 		
 		//query I with physical organization 1
-		long avg;
+		long avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 1: " + avg);
-
+		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 1: " +avgtotal/10);
+		avgtotal = 0;
 		//Query II for physical organization 1
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 1: " + avg);
+		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 1: " +avgtotal/10);
 
 		//Query III for physical organization 1
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " + avg);		
+		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " +avgtotal/10);		
 		//add index for col a
 		start = System.currentTimeMillis();
 		indexA(conn);
@@ -232,32 +233,35 @@ public class test {
 		total = end - start;
 		System.out.println ("TIME TO ADD INDEX A: " + total);
 		//Query I with physical organization 2 
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 2: " + avg);
+		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 2: " +avgtotal/10);
 		//Query II with physical organization 2
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 2: " + avg);
+		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 2: " +avgtotal/10);
 		//Query III with pysical organization 2
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " + avg);
+		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " +avgtotal/10);
 
 		dropTable(conn);
 		createTable(conn);
@@ -270,61 +274,67 @@ public class test {
 		total = end - start;
 		System.out.println ("TIME TO ADD INDEX B: " + total);
 		//Query I with physical organization 3 
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 3: " + avg);
+		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 3: " +avgtotal/10);
 		//Query II with physical organization 3
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 3: " + avg);
+		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 3: " +avgtotal/10);
 		//Query III with pysical organization 3
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 3: " + avg);
+		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 3: " +avgtotal/10);
 		//add secondary index for col a
 		indexA(conn);
 		///Query I with physical organization 4 
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 4: " + avg);
-		//Query II with physical organization 3
+		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 4: " +avgtotal/10);
+		//Query II with physical organization 4
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 4: " + avg);
-		//Query III with pysical organization 3
+		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 4: " +avgtotal/10);
+		//Query III with pysical organization 4
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 4: " + avg);
+		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 4: " +avgtotal/10);
 
 		dropTable(conn);
 		//loading Variation II
@@ -337,35 +347,38 @@ public class test {
 		total = end - start;
 		System.out.println("VARIATION II LOAD TIME : " + total);
 
-
+		//Query I for physical organization 1
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 1: " + avg);
+		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 1: " +avgtotal/10);
 
 		//Query II for physical organization 1
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 1: " + avg);
+		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 1: " +avgtotal/10);
 
 		//Query III for physical organization 1
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " + avg);		
+		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " +avgtotal/10);		
 		//add index for col a
 		start = System.currentTimeMillis();
 		indexA(conn);
@@ -373,32 +386,35 @@ public class test {
 		total = end - start;
 		System.out.println ("TIME TO ADD INDEX A: " + total);
 		//Query I with physical organization 2 
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 2: " + avg);
+		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 2: " +avgtotal/10);
 		//Query II with physical organization 2
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 2: " + avg);
+		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 2: " +avgtotal/10);
 		//Query III with pysical organization 2
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " + avg);
+		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 1: " +avgtotal/10);
 
 		dropTable(conn);
 		createTable(conn);
@@ -411,61 +427,67 @@ public class test {
 		total = end - start;
 		System.out.println ("TIME TO ADD INDEX B: " + total);
 		//Query I with physical organization 3 
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 3: " + avg);
+		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 3: " +avgtotal/10);
 		//Query II with physical organization 3
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 3: " + avg);
+		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 3: " +avgtotal/10);
 		//Query III with pysical organization 3
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 3: " + avg);
+		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 3: " +avgtotal/10);
 		//add secondary index for col a
 		indexA(conn);
 		///Query I with physical organization 4 
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryOne(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 4: " + avg);
+		System.out.println("QUERY I FOR PHYSICAL ORGANIZATION 4: " +avgtotal/10);
 		//Query II with physical organization 3
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryTwo(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 4: " + avg);
+		System.out.println("QUERY II FOR PHYSICAL ORGANIZATION 4: " +avgtotal/10);
 		//Query III with pysical organization 3
+		avgtotal = 0;
 		for (int i = 1; i <= 10; i ++) {
 			start = System.currentTimeMillis();
 			queryThree(conn, intArray[i-1]);
 			end = System.currentTimeMillis();
 			total = end - start;
-			avg = (long)(((int) avg * i +(int) total)/(i+1));
+			avgtotal += total;
 		}
-		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 4: " + avg);
+		System.out.println("QUERY III FOR PHYSICAL ORGANIZATION 4: " +avgtotal/10);
 
 		dropTable(conn);
 
